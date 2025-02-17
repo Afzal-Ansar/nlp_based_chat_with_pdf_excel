@@ -11,7 +11,9 @@ from langchain.callbacks import StreamlitCallbackHandler
 from langchain_groq import GroqEmbeddings
 import pandas as pd
 import streamlit as st
-st.title(" A file Analyzer")
+st.set_page_config(page_title="AI-Powered File Analyzer", layout="wide")
+st.title("📂 AI-Powered File Analyzer")
+st.sidebar.header("Upload & Settings")
 #load api and embeddings
 import os
 import streamlit as st
