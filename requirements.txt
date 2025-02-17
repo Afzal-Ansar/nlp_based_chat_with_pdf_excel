@@ -34,3 +34,5 @@ pytube
 numexpr
 huggingface_hub
 langchain_experimental
+torch>=2.0.0  
+python-multipart
