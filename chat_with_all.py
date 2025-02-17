@@ -50,8 +50,8 @@ if upload_file is not None:
         split_docs = text_splitter.split_documents(docs)
 
         # FAISS Vector Store
-        from langchain.vectorstores import Chroma
-        vector = Chroma.from_documents(split_docs, embed)
+        from langchain_community.vectorstores import FAISS
+        vector = FAISS.from_documents(split_docs, embed)
         retriever = vector.as_retriever()
 
         # Create Processing Chain
