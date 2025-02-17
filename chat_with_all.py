@@ -15,7 +15,7 @@ st.title(" A file Analyzer")
 import os
 import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
-embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",model_kwargs={"timeout": 60})
+embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 groq_API="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"
 llm=ChatGroq(groq_api_key=groq_API,model="Llama3-8b-8192")
 upload_file=st.file_uploader("upload your file")
