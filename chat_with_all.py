@@ -8,15 +8,15 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel
 from langchain_experimental.agents import create_pandas_dataframe_agent
 from langchain.callbacks import StreamlitCallbackHandler
+from langchain_groq import GroqEmbeddings
 import pandas as pd
 import streamlit as st
 st.title(" A file Analyzer")
 #load api and embeddings
 import os
 import streamlit as st
-from langchain_huggingface import HuggingFaceEmbeddings
-embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 groq_API="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"
+embed = GroqEmbeddings(model="text-embedding-ada-002", groq_api_key=groq_API)
 llm=ChatGroq(groq_api_key=groq_API,model="Llama3-8b-8192")
 upload_file=st.file_uploader("upload your file")
 if upload_file is not None:
