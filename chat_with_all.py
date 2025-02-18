@@ -14,6 +14,8 @@ import streamlit as st
 st.set_page_config(page_title="AI-Powered File Analyzer", layout="wide")
 st.title("📂 AI-Powered File Analyzer")
 st.sidebar.header("Upload & Settings")
+if "chat_history" not in st.session_state:
+    st.session_state["chat_history"] = []
 #load api and embeddings
 import os
 import streamlit as st
@@ -96,3 +98,8 @@ if upload_file is not None:
 
         else:
             st.error("Unsupported file format. Please upload a PDF, CSV, or Excel file.")
+        st.session_state["chat_history"].append({"query": user_query, "response": response})
+st.subheader("Chat History")
+for chat in st.session_state["chat_history"]:
+    st.write(f"User:{chat['query']}")
+    st.write(f"AI:{chat['response']}")
