@@ -102,4 +102,4 @@ if upload_file is not None:
 st.subheader("Chat History")
 for chat in st.session_state["chat_history"]:
     st.write(f"User:{chat['query']}")
-    st.write(f"AI:{chat['response.output']}")
+    st.write(f"AI:{chat[response['output']]}")
