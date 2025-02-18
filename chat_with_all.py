@@ -13,7 +13,7 @@ import pandas as pd
 import streamlit as st
 st.set_page_config(page_title="AI-Powered File Analyzer", layout="wide")
 st.title("📂 AI-Powered File Analyzer")
-st.sidebar.header("Made by: AFZAL ANSARI")
+st.subheaders("Made by: AFZAL ANSARI")
 if "chat_history" not in st.session_state:
     st.session_state["chat_history"] = []
 #load api and embeddings
