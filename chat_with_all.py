@@ -67,7 +67,7 @@ if upload_file is not None:
 
     # Function to Process Excel
     def process_excel(file_path):
-        df = pd.read_excel(file_path)
+        df = pd.read_excel(file_path,engine="openpyxl")
         agent = create_pandas_dataframe_agent(llm, df, verbose=True, handle_parsing_errors=True,allow_dangerous_code=True)
         return agent
 
