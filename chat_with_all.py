@@ -81,27 +81,28 @@ if upload_file is not None:
     user_query = st.text_input("Enter your query")
 
     if user_query:
-        if extension == "pdf":
-            chain = process_pdf(file_path)
-            response = chain.invoke(user_query)
-            st.balloons()
-            st.write(response)
-
-        elif extension in ["xls", "xlsx"]:
-            agent = process_excel(file_path)
-            response = agent.invoke(user_query)
-            st.balloons()
-            st.write(response)
-
-        elif extension == "csv":
-            agent = process_csv(file_path)
-            response = agent.invoke(user_query)
-            st.balloons()
-            st.write(response)
-
-        else:
-            st.error("Unsupported file format. Please upload a PDF, CSV, or Excel file.")
-        st.session_state["chat_history"].append({"query": user_query, "response": response})
+        if st.button("Generate Response"):
+            if extension == "pdf":
+                chain = process_pdf(file_path)
+                response = chain.invoke(user_query)
+                st.balloons()
+                st.write(response)
+    
+            elif extension in ["xls", "xlsx"]:
+                agent = process_excel(file_path)
+                response = agent.invoke(user_query)
+                st.balloons()
+                st.write(response)
+    
+            elif extension == "csv":
+                agent = process_csv(file_path)
+                response = agent.invoke(user_query)
+                st.balloons()
+                st.write(response)
+    
+            else:
+                st.error("Unsupported file format. Please upload a PDF, CSV, or Excel file.")
+            st.session_state["chat_history"].append({"query": user_query, "response": response})
 st.subheader("Chat History")
 for chat in st.session_state["chat_history"]:
     st.write(f"User:{chat['query']}")
