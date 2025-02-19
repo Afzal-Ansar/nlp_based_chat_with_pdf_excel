@@ -27,7 +27,7 @@ embed = HuggingFaceEmbeddings(
 )
 
 llm=ChatGroq(groq_api_key=groq_API,model="Llama3-8b-8192")
-upload_file=st.file_uploader("upload your file")
+upload_file=st.file_uploader(f"Upload your file(pdf, excel or csv)")
 if upload_file is not None:
     extension=upload_file.name.split(".")[-1].lower()
     file_path=f"file{extension}"
