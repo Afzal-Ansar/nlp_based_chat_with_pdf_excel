@@ -85,19 +85,19 @@ if upload_file is not None:
             if extension == "pdf":
                 chain = process_pdf(file_path)
                 response = chain.invoke(user_query)
-                st.balloons()
+                
                 st.write(response)
     
             elif extension in ["xls", "xlsx"]:
                 agent = process_excel(file_path)
                 response = agent.invoke(user_query)
-                st.balloons()
+                
                 st.write(response)
     
             elif extension == "csv":
                 agent = process_csv(file_path)
                 response = agent.invoke(user_query)
-                st.balloons()
+                
                 st.write(response)
     
             else:
